@@ -6,7 +6,9 @@ cache/*
 sound_output/*
 plate.ipynb
 
-#Unity 
+modes/*
+
+#Unity
 /Unity\ Project/[Ll]ibrary/
 /Unity\ Project/[Tt]emp/
 /Unity\ Project/[Oo]bj/

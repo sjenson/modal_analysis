@@ -10,13 +10,17 @@ def load_obj(file_name):
                 continue
 
             # vertex
-            if line[0] == 'v':
-                line = np.array([float(x) for x in line.strip().split(' ')[1:]])
+            if line[:2] == 'v ':
+                line = np.array([float(x) for x in line.strip().split(' ')[1:4]])
                 V.append(line)
 
             # face
             if line[0] == 'f':
-                line = [int(x) - 1 for x in line.strip().split(' ')[1:]]
+                line = line.strip().split(' ')[1:4]
+                if '/' in line[0]:
+                    line = np.array([int(x[:x.find('/')]) - 1 for x in line])
+                else:
+                    line = np.array([int(x)-1 for x in line])
                 F.append(line)
                 
     edge_set = set()
